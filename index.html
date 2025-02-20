@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Review Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>C++ Code Review Tool</h2>
+    <input type="file" id="fileInput">
+    <button onclick="analyzeCode()">Analyze Code</button>
+    <pre id="output"></pre>
+    
+    <script>
+        function analyzeCode() {
+            const fileInput = document.getElementById("fileInput").files[0];
+            if (!fileInput) {
+                alert("Please upload a C++ file.");
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append("file", fileInput);
+            
+            fetch("http://localhost:5000/analyze", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("output").innerText = JSON.stringify(data, null, 2);
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+</body>
+</html>
