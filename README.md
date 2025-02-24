@@ -1,5 +1,7 @@
-# Code-Review-and-Refactoring-Tool
 # Code Review and Refactoring Tool
+
+![image](https://github.com/user-attachments/assets/84d2cad9-ce8c-43bb-b8c0-72762dc25247)
+
 
 ## Overview
 The **Code Review and Refactoring Tool** is a **JSON-based static code analysis tool** designed to review C++ source files and identify potential issues such as **missing semicolons, deep nesting, long functions, poor indentation, and unused variables**. The tool provides **structured JSON output**, making it easy to integrate with other applications or CI/CD pipelines.
